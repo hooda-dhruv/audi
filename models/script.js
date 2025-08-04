@@ -34,3 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// --- JAVASCRIPT FOR HAMBURGER MENU ---
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", () => {
+    // Toggles the 'active' class on both the hamburger and the menu
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+});

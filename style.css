@@ -454,3 +454,46 @@ ul {
         width: 100%; /* Make columns full-width to stack them */
     }
 }
+/* --- RESPONSIVE DESIGN FOR MOBILE --- */
+
+/* First, style the hamburger icon itself */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color-dark);
+    transition: all 0.3s ease-in-out;
+}
+
+/* This is a Media Query. These styles will ONLY apply on screens 768px wide or smaller */
+@media(max-width: 768px) {
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+    }
+    
+    .nav-menu {
+        position: absolute;
+        left: -100%; /* Start off-screen */
+        top: 70px; /* Position below the header */
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0; /* Slide into view when active */
+    }
+
+    .nav-item {
+        padding: 1.5rem 0;
+    }
+}
