@@ -265,10 +265,32 @@ ul {
 }
 
 /* --- Responsive styles for smaller screens --- */
-@media (max-width: 768px) {
-    .card {
-        width: 100%; /* On smaller screens, make cards stack vertically */
+/* =================================== */
+/* MOBILE STYLES (768px and below)     */
+/* =================================== */
+@media(max-width: 768px) {
+    
+    /* This is the new code you just added */
+    .hero-section {
+        height: 55vh; 
+        background-position: center 70%;
     }
+
+    /* On mobile, hide the desktop navigation links */
+    .nav-right .nav-menu {
+        display: none;
+    }
+    /* Add this inside your @media(max-width: 768px) { ... } block */
+
+.info-cards-section {
+    flex-direction: column; /* Stacks the cards vertically */
+}
+
+.card {
+    width: 100%; /* Makes each card take the full width */
+}
+
+    /* ... other mobile styles ... */
 }
 
 /* --- DEALER SECTION --- */
