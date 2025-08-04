@@ -39,3 +39,12 @@ document.querySelectorAll('.btn, .card-content a').forEach(button => {
         alert("Button clicked! You can link this to another page.");
     });
 });
+// --- JAVASCRIPT FOR RESPONSIVE MENU ---
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-menu");
+
+// When the "Menu" button is clicked...
+menuToggle.addEventListener("click", () => {
+    // This adds or removes the ".active" class from the menu
+    navMenu.classList.toggle("active");
+});

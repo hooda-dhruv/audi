@@ -13,37 +13,100 @@ main { padding-top: 85px; } /* CRITICAL: Leaves space for the header */
 
 /* --- HEADER --- */
 .header {
-    background-color: var(--color-light); /* White background */
+    position: absolute; /* Keeps header on top of the hero image */
     width: 100%;
-    padding: 20px 5%;
-    border-bottom: 1px solid #eee; /* Subtle line below header */
+    z-index: 10;
 }
 
 .navbar {
     display: flex;
-    justify-content: flex-start; /* This moves the items to the left */
+    justify-content: space-between; /* Pushes menu button and nav links to the edges */
     align-items: center;
-    gap: 60px; /* This creates a nice space between the logo and the links */
+    padding: 20px 5%;
 }
 
 .nav-logo img {
-    height: 25px; /* Adjust height of logo */
+    height: 18px;      /* Default small logo for mobile */
+    filter: invert(1); /* Keeps the logo white */
 }
 
-.nav-menu {
+/* Styles the "☰ Menu" button */
+.menu-toggle {
     display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+.hamburger .bar {
+    width: 20px;
+    height: 2px;
+    margin: 4px 0;
+    background-color: white;
+}
+
+/* This is the key part for mobile: */
+.nav-menu {
+    display: none; /* The menu is HIDDEN by default */
+    position: fixed; /* When active, it will cover the whole screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Black background like the original */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
 }
 
-.nav-link {
-    color: var(--color-dark); /* Dark text for white background */
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
+/* This class gets added by JavaScript to show the menu */
+.nav-menu.active {
+    display: flex;
 }
 
-.nav-link:hover {
-    color: var(--color-grey);
+.nav-menu .nav-link {
+    color: white;
+    font-size: 1.5rem;
+}
+
+
+/* --- DESKTOP STYLES --- */
+/* These styles ONLY apply to screens wider than 768px */
+@media(min-width: 769px) {
+    .menu-toggle {
+        display: none; /* HIDE the "☰ Menu" button on desktop */
+    }
+
+    /* SHOW the nav menu on desktop and style it horizontally */
+    .nav-menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        background-color: transparent; /* No black background on desktop */
+    }
+
+    .nav-menu .nav-link {
+        font-size: 0.9rem; /* Smaller font for desktop nav */
+    }
+
+    .nav-logo img {
+        height: 25px; /* Slightly larger logo for desktop */
+    }
+    
+    /* Re-center the desktop layout since "Menu" is gone */
+    .navbar {
+       justify-content: space-between;
+    }
+    /* We need to re-add the logo to the space-between logic on desktop */
+     .nav-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 /* --- HERO SECTION (Homepage) --- */
 .hero-section { height: 90vh; background-image: url(heroimage.jpg); background-size: cover; background-position: center; }
