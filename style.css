@@ -582,3 +582,62 @@ ul {
         padding: 1.5rem 0;
     }
 }
+/* =================================== */
+/* FINAL MOBILE RESPONSIVE FIX         */
+/* Add this entire block to the end of your style.css file. */
+/* =================================== */
+@media (max-width: 768px) {
+
+    /* --- Header Fix --- */
+    /* This correctly styles the fullscreen mobile menu overlay */
+    body.menu-active .nav-menu {
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #000; /* Ensures solid black background */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        z-index: 99;
+    }
+
+    body.menu-active .nav-link {
+        font-size: 1.8rem;
+    }
+
+    /* This hides the desktop links on mobile */
+    .nav-right .nav-menu {
+        display: none;
+    }
+    
+    /* --- Hero Image Fix --- */
+    /* Adjusts the hero image to be shorter, keeping the cars in view */
+    .hero-section {
+        height: 55vh;
+        background-position: center 70%;
+    }
+
+    /* --- Info Cards & Dealer Section Fix --- */
+    /* This makes any section using a flex layout stack vertically on mobile */
+    .info-cards-section,
+    .dealer-section,
+    .myaudi-section {
+        flex-direction: column;
+    }
+
+    .card,
+    .dealer-image,
+    .dealer-content,
+    .myaudi-content,
+    .myaudi-image {
+        width: 100%; /* Makes all columns in those sections full-width */
+    }
+    
+    .dealer-content {
+        padding: 40px 5%; /* Adds some space for the dealer text */
+    }
+}
