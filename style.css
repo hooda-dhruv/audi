@@ -111,8 +111,20 @@ ul {
 }
 
 /* This class gets added by JavaScript to show the menu */
+/* This rule makes the menu a fullscreen overlay when active */
 .nav-menu.active {
-    display: flex;
+    display: flex; /* Show the menu */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000; /* Solid black background */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 999; /* Ensures it's on top of all other content */
 }
 
 .nav-menu .nav-link {
@@ -640,4 +652,16 @@ ul {
     .dealer-content {
         padding: 40px 5%; /* Adds some space for the dealer text */
     }
+}
+/* --- Fixes for the "Our New Models" slider on mobile --- */
+.models-section .swiper-slide {
+    height: 350px; /* Give each slide a consistent height */
+    background-color: #f0f0f0; /* Add a background color */
+    border-radius: 8px; /* Optional: adds rounded corners */
+}
+
+.models-section .swiper-slide img {
+    width: 100%;
+    height: 70%; /* Make image take up most of the slide height */
+    object-fit: contain; /* Ensures the whole car is visible without stretching */
 }

@@ -43,6 +43,13 @@ document.querySelectorAll('.btn, .card-content a').forEach(button => {
 const menuToggle = document.querySelector(".menu-toggle");
 const navMenu = document.querySelector(".nav-menu");
 
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+        // This adds or removes the "active" class from the menu itself
+        navMenu.classList.toggle("active");
+    });
+}
+
 // When the "Menu" button is clicked...
 menuToggle.addEventListener("click", () => {
     // This adds or removes the ".active" class from the menu
