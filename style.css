@@ -1,0 +1,456 @@
+/* --- GLOBAL STYLES & VARIABLES --- */
+:root {
+    --color-dark: #000;
+    --color-light: #fff;
+    --color-grey: #a1a1a1;
+    --color-dark-grey: #242424;
+    --color-audi-red: #f50537;
+    --font-primary: 'Helvetica', 'Arial', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.btn {
+    padding: 12px 28px;
+    border: 1px solid;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-light {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    border-color: var(--color-light);
+}
+
+.btn-light:hover {
+    background-color: transparent;
+    color: var(--color-light);
+}
+
+.btn-dark {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border-color: var(--color-dark);
+}
+
+.btn-dark:hover {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+/* --- HEADER --- */
+.header {
+    background-color: var(--color-light); /* White background */
+    width: 100%;
+    padding: 20px 5%;
+    border-bottom: 1px solid #eee; /* Subtle line below header */
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-start; /* This moves the items to the left */
+    align-items: center;
+    gap: 60px; /* This creates a nice space between the logo and the links */
+}
+
+.nav-logo img {
+    height: 25px; /* Adjust height of logo */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--color-dark); /* Dark text for white background */
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-grey);
+}
+
+/* --- HERO SECTION (CORRECTED) --- */
+.hero-section {
+    /* This calculates the correct height: Full screen MINUS header height */
+    height: calc(100vh - 80px);
+
+    /* This ensures the image always covers the area */
+    background-size: cover;
+
+    /* This aligns the image to the TOP to show all the text */
+    background-position: center top;
+
+    /* This points to your local image file */
+    background-image: url(heroimage.jpg);
+}
+/* --- MODELS SECTION --- */
+.models-section {
+    padding: 80px 5%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.models-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.view-all-link {
+    display: inline-block;
+    margin-bottom: 40px;
+    color: var(--color-grey);
+    text-decoration: underline;
+}
+
+/* -- Swiper Slider Styles -- */
+.swiper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 250px; /* Fixed height for images */
+    object-fit: contain; /* Ensures the whole car is visible */
+    margin-bottom: 1rem;
+}
+
+.swiper-slide span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--color-dark);
+}
+
+/* --- INFO CARDS SECTION (4-Card Grid) --- */
+.info-cards-section {
+    display: flex;
+    flex-wrap: wrap; /* This is the key change to allow cards to wrap into a grid */
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 50%; /* Each card takes up 50% of the width, creating a 2x2 grid */
+    background-color: #f9f9f9;
+    /* Add a small border to create space between cards */
+    border: 5px solid white; 
+}
+
+.card-image img {
+    width: 100%;
+    height: 500px;
+    display: block;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 40px;
+}
+
+.card-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.card-content a {
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.card-content a i {
+    margin-left: 5px;
+}
+
+/* --- Responsive styles for smaller screens --- */
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* On smaller screens, make cards stack vertically */
+    }
+}
+
+/* --- DEALER SECTION --- */
+.dealer-section {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    width: 100%;
+    max-width: 1600px;
+    margin: 80px auto;
+}
+
+.dealer-image,
+.dealer-content {
+    width: 50%;
+}
+
+.dealer-image img {
+    width: 100%;
+    display: block;
+}
+
+.dealer-content {
+    padding: 5%;
+    text-align: left;
+}
+
+.dealer-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 80px 5% 30px;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+    gap: 30px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid var(--color-dark-grey);
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 150px; /* Ensures columns don't get too narrow */
+}
+
+.footer-column h3 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: var(--color-grey);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: var(--color-light);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    font-size: 0.8rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+    color: var(--color-grey);
+    margin-bottom: 15px;
+}
+
+.footer-legal a {
+    color: var(--color-light);
+}
+
+.footer-social {
+    display: flex;
+    gap: 25px;
+    font-size: 1.2rem;
+}
+
+.footer-disclaimer {
+    border-top: 1px solid var(--color-dark-grey);
+    padding-top: 30px;
+    color: var(--color-grey);
+    font-size: 0.75rem;
+}
+
+.footer-disclaimer p {
+    margin-bottom: 15px;
+}
+
+/* --- FLOATING CHAT BUTTON --- */
+.chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-audi-red);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+/* --- ELECTRIC SECTION --- */
+.electric-section {
+    position: relative;
+    padding: 100px 5%;
+    min-height: 70vh;
+    /* Background image of the e-tron GT */
+    background-image: url('etron.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.electric-content {
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    padding: 40px;
+    max-width: 550px;
+    border-radius: 4px; /* Optional: adds slightly rounded corners */
+}
+
+.electric-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.electric-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.electric-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* New button style for the outline button */
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-dark);
+    border-color: var(--color-dark);
+    padding: 12px 28px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+/* --- MYAUDI SECTION --- */
+.myaudi-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to stack on small screens */
+    max-width: 1600px;
+    margin: 80px auto;
+    background-color: #000;
+}
+
+.myaudi-content, .myaudi-image {
+    width: 50%;
+    min-height: 500px;
+}
+
+.myaudi-content {
+    color: var(--color-light);
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.myaudi-content p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 500px;
+}
+
+.myaudi-content h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.myaudi-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.myaudi-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* New button style for white outline on dark background */
+.btn-outline-light {
+     background-color: transparent;
+     color: var(--color-light);
+     border: 1px solid var(--color-light);
+     padding: 12px 28px;
+     cursor: pointer;
+     font-size: 1rem;
+     font-weight: bold;
+     transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+     background-color: var(--color-light);
+     color: var(--color-dark);
+}
+
+/* Responsive styles for this section */
+@media (max-width: 900px) {
+    .myaudi-content, .myaudi-image {
+        width: 100%; /* Make columns full-width to stack them */
+    }
+}
